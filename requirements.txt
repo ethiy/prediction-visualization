@@ -1,2 +1,4 @@
 streamlit == 1.13.0
-tensorflow == 2.9.0
+tensorflow == 2.8.0
+google_api_python_client==1.12.8
+numpy == 1.23.3
