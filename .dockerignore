@@ -3,6 +3,8 @@
 *.pyd
 __pycache__
 
+.venv
+
 models
 
 *.json
