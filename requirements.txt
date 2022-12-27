@@ -2,3 +2,5 @@ streamlit == 1.13.0
 tensorflow == 2.8.0
 google_api_python_client==1.12.8
 numpy == 1.23.3
+pandas == 1.4.2
+tensorflow-datasets == 4.7.0

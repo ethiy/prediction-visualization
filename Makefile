@@ -7,7 +7,7 @@ run:
 
 run-container:
 	@docker build . -t ${APP_NAME}
-	@docker run -e GOOGLE_APPLICATION_CREDENTIALS=/prediction-visualization/credentials/nth-record-364713-6376986faf0f.json -p 8080:8080 ${APP_NAME}
+	@docker run -e GOOGLE_APPLICATION_CREDENTIALS=/prediction-visualization/credentials/prediction-visualisation-a42d739e5fc7.json -p 8080:8080 ${APP_NAME}
 
 gcloud-deploy:
 	@gcloud app deploy app.yaml
