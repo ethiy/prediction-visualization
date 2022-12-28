@@ -132,3 +132,6 @@ models
 
 *.json
 *.csv
+
+images
+*.zip

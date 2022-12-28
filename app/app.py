@@ -17,7 +17,9 @@ GOOGLE_AI_PLATFORM_ENDPOINT = "https://europe-west3-ml.googleapis.com"
 GOOGLE_PROJECT_ID = "prediction-visualisation"
 MODEL = "resnet_101_imagenet"
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="./credentials/prediction-visualisation-a42d739e5fc7.json"
+os.environ[
+    "GOOGLE_APPLICATION_CREDENTIALS"
+] = "./credentials/prediction-visualisation-a42d739e5fc7.json"
 
 
 def preprocess_image(image):

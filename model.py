@@ -2,12 +2,12 @@ import tensorflow as tf
 import tensorflow_datasets as tfds
 
 pretrained_resnet = tf.keras.applications.resnet_v2.ResNet101V2(
-    include_top=False, # Enlever les scores Imagenet (a remplacer par les scores de nos classes)
+    include_top=False,  # Enlever les scores Imagenet (a remplacer par les scores de nos classes)
     weights="imagenet",
     input_tensor=tf.keras.Input(shape=(224, 224, 3)),
     input_shape=(224, 224, 3),
     pooling=None,
-    classes=102, #Nombre de classes
+    classes=102,  # Nombre de classes
     classifier_activation="softmax",
 )
 for layer in pretrained_resnet.layers:
