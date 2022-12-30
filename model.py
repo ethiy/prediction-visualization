@@ -7,7 +7,7 @@ pretrained_resnet = tf.keras.applications.resnet_v2.ResNet101V2(
     input_tensor=tf.keras.Input(shape=(224, 224, 3)),
     input_shape=(224, 224, 3),
     pooling=None,
-    classes=102,  # Nombre de classes
+    classes=10,  # Nombre de classes
     classifier_activation="softmax",
 )
 for layer in pretrained_resnet.layers:
@@ -36,21 +36,23 @@ resnet.compile(
     optimizer="adam", loss="sparse_categorical_crossentropy", metrics=["accuracy"]
 )
 
-# training_ds = tf.keras.utils.image_dataset_from_directory(
-#     r"C:\Users\idris\Downloads\Caltech256\256_ObjectCategories", label_mode="categorical", batch_size=32, image_size=(224, 224), validation_split=.9, subset="training", seed=42
-# )
-
-# validation_ds = tf.keras.utils.image_dataset_from_directory(
-#     r"C:\Users\idris\Downloads\Caltech256\256_ObjectCategories",label_mode="categorical", batch_size=32, image_size=(224, 224), validation_split=.9, subset="validation", seed=42
-# )
-
-training_ds, validation_ds = tfds.load(
-    "caltech101",
-    split=["train", "test"],
-    shuffle_files=True,
-    as_supervised=True,
+training_ds = tf.keras.preprocessing.image_dataset_from_directory(
+    "./images",
+    subset="training",
+    seed=123,
+    image_size=(224, 224),
     batch_size=16,
+    validation_split=0.2,
 )
+validation_ds = tf.keras.preprocessing.image_dataset_from_directory(
+    "./images",
+    subset="validation",
+    seed=123,
+    image_size=(224, 224),
+    batch_size=16,
+    validation_split=0.2,
+)
+
 
 resnet.fit(training_ds, epochs=20, validation_data=validation_ds, shuffle=False)
 

@@ -10,7 +10,7 @@ import tensorflow as tf
 import numpy as np
 import pandas as pd
 
-from caltech101_classnames import CLASSNAMES
+from soccer_classnames import CLASSNAMES
 
 
 GOOGLE_AI_PLATFORM_ENDPOINT = "https://europe-west3-ml.googleapis.com"
